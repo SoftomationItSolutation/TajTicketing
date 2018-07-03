@@ -1,0 +1,59 @@
+
+<ul class="nav navbar-top-links navbar-right">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+            <li>
+                <a data-title="Edit" data-toggle="modal" data-target="#edit" >
+                    <i class="fa fa-user fa-fw" >Change Password</i>
+                </a>
+            </li>
+            <!-- <li>
+                <a href="#">
+                    <i class="fa fa-gear fa-fw"></i> Settings
+                </a>
+            </li> -->
+            <li class="divider"></li>
+            <li>
+                <a (click)="logoff()">
+                    <i class="fa fa-sign-out fa-fw"></i> Logout
+                </a>
+            </li>
+        </ul>
+        <!-- /.dropdown-user -->
+    </li>
+    <!-- /.dropdown -->
+</ul>
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title custom_align" id="Heading">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="ChnagePassword" (validSubmit)="onSubmit()" class="form-horizontal">
+                    <div class="form-group">
+                        <input class="form-control " type="password" placeholder="Old Password" [(ngModel)] = "OldPassword" formControlName="OldPassword" >
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control " type="password" placeholder="New Password" [(ngModel)] = "NewPassword" formControlName="NewPassword" >
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control " type="password" placeholder="Confirm Password" [(ngModel)] = "CPassword" formControlName="CPassword" >
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;" >
+                            <span class="glyphicon glyphicon-ok-sign">Update</span> 
+                        </button>
+                    </div>
+                </form>
+            </div>
+               
+        </div>
+    </div>
+</div>

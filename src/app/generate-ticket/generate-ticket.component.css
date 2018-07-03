@@ -1,0 +1,101 @@
+/* *{
+    box-sizing:border-box;
+    line-height: 5mm;
+    font-weight: bold;
+}
+.PageSize{
+    width: 210mm;
+    height: 297mm;
+}
+.main-ticket-container{
+    width: 250mm;
+    height: 93mm;
+    padding: 2mm;
+    transform: rotate(90deg);
+    transform-origin: 28% 84%;
+    background-color: #fff;
+}
+div.ticket-left{
+    width: 130mm;
+    float: left;
+    height: 80mm;
+   
+}
+div.ticket-middle{
+    width: 54mm;
+    float: left;
+    height: 80mm;
+   
+}
+div.ticket-right{
+    width: 54mm;
+    float: left;
+    height: 80mm;
+  
+}
+
+table tr td{
+    vertical-align: top;
+}
+
+table.ticket-left tr td:nth-child(1){
+    width: 15mm;
+}
+table.ticket-left tr td:nth-child(2){
+    width: 35mm;
+}
+table.ticket-left tr td:nth-child(3){
+    width: 15mm;
+}
+table.ticket-left tr td:nth-child(4){
+    width: 28mm;
+}
+table.ticket-left tr td:nth-child(5){
+    width: 25mm;
+}
+table.ticket-left tr td:nth-child(6){
+    width: 15mm;
+}
+
+
+table.ticket-date tr td:nth-child(1){
+    width: 26mm;
+}
+div.ticket-details table:not(.ticket-date) td{
+    line-height: 4mm;
+    height: 9mm;
+    width: 100%;
+    font-size: 14px;
+}
+table.tbl-time tr td:nth-child(1){
+    min-width: 15mm;
+    width: 15mm;
+}
+table.tbl-name tr td:nth-child(1){
+    min-width: 18mm;
+    width: 18mm;
+}
+table.tbl-sex tr td:nth-child(1){
+    min-width: 12mm;
+    width: 12mm;
+}
+table.tbl-age tr td:nth-child(1){
+    min-width: 13mm;
+    width: 13mm;
+}
+table.tbl-nationality tr td:nth-child(1){
+    min-width: 30mm;
+    width: 30mm;
+}
+table.tbl-pp tr td:nth-child(1){
+    min-width: 20mm;
+    width: 20mm;
+}
+table.tbl-rate tr td:nth-child(1){
+    min-width: 15mm;
+    width: 15mm;
+}
+
+div.ticket-right table{
+    margin-bottom: 3mm;
+} */

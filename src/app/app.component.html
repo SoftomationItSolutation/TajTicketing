@@ -1,0 +1,33 @@
+<div class="container">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 3px;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="../assets/asi_logo_b.jpg" alt="Taj Mahal" style="height:36px;"> 
+            </a>           
+        </div>
+        <app-header *ngIf="showHearder"></app-header>
+        <app-left-panel *ngIf="showHearder"></app-left-panel>
+    </nav>
+    <div class="page-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+    <footer class="page-footer font-small blue pt-4 mt-4">
+        <div class="footer-copyright text-center py-3">© 2018 Powered By:
+            <a href="#"> USS IT SOLUTIONS</a>
+        </div>
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="#"> Softomation.com</a>
+        </div>
+    </footer>
+
+</div>
+<div id="loader" class="loader" onclick="showLoader" *ngIf="showLoader" >
+    <!-- <img class="svg fa-2x fa-spin loader-spin" height="200px" src="../assets/loder.gif" /> -->
+    <img class="svg fa-2x fa-spin loader-spin" src="../../assets/spinner-circle.svg" />
+</div>

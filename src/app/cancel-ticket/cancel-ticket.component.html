@@ -1,0 +1,143 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Cancel Ticket
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" name="search" [(ngModel)] ="searchText" placeholder="Sr .No" class="form-control">
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="row"></div> 
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Serial No</th>
+                                        <th>Visiter Name</th>
+                                        <th>Slot Timing</th>
+                                        <th>Visit Date</th>
+                                        <th>Booking Date</th>
+                                        <th>Booking Time</th>
+                                        <th>Status</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let lt of ListTicket | filter : searchText: 'cancel' let i = index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{lt.SerialNo}}</td>
+                                        <td>{{lt.VisiterName}}</td>
+                                        <td>{{lt.SloatTime}}</td>
+                                        <td>{{lt.VisitDate}}</td>
+                                        <td>{{lt.BookingDate}}</td>
+                                        <td>{{lt.BookingTime}}</td>
+                                        <td>{{lt.StatusName}}</td>
+                                        <td><i class="fa fa-times-circle" aria-hidden="true" (click)="CancelTicket(lt.VisiterId)"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup" style="width: 600px;" *ngIf=(CancelPopup)>
+            <div class="panel panel-default">
+                <div class="panel-heading col-lg-12" >
+                    <div class="col-lg-8">Slot Timing: {{SloatTiming}}</div>
+                    <div class="col-lg-4" style="text-align: right">
+                        <a title="Close" class="closer" (click)="CancelPopup = false">
+                            <i class="fa fa-close" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Ticket <small>(Sr. No. : {{SerialNo}})</small>
+                        <form class="form-inline" style="font-size: 14px;float: right;">
+                            <div class="form-group">
+                                <label class="control-label">Visiting Date:</label>
+                                <input type="text" class="form-control"  placeholder="Visiting Date" value="{{VisitDate}}">
+                            </div>
+                        </form>
+                        </h1>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Nationality:</label>
+                                <div class="col-sm-8">
+                                    <label class="control-label">{{Nationality}}</label>
+                                </div>
+                            </div>
+                            <div class="row"></div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Age:</label>
+                                <div class="col-sm-8">
+                                    <label class="control-label">{{Age}}</label>
+                                </div>
+                            </div>
+                            <form [formGroup]="TicketGroup" (validSubmit)="onSubmit()" class="form-horizontal">
+                                <div class="row"></div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-6" for="noofTicket">No. of Tickets:</label>
+                                            <div class="col-sm-6">
+                                                <input type="number" id="noofTicket" class="form-control col-lg-2" min="1" value="1" placeholder="Tickets(Qty.)" formControlName="TicketNo"  [(ngModel)] = "TicketNo" (input)="onTicketCount('C',$event.target.value)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-6" for="Amount">Ticket Amount:</label>
+                                            <div class="col-sm-6"> 
+                                                <input id="Amount" type="number " class="form-control col-sm-6"  placeholder="Amount" formControlName="Amount"  [(ngModel)] = "Amount" min="1" (input)="onTicketCount('A',$event.target.value)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row"></div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-6" for="CancelCharge">Cancel Charge (%):</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" id="CancelCharge" class="form-control col-lg-2" min="0" value="1" placeholder="Cancel Charge" formControlName="CancelCharge"  [(ngModel)] = "CancelCharge" (input)="onTicketCount('R',$event.target.value)">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="row"></div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="Reason">Reason of Cancel:</label>
+                                    <div class="col-sm-9">
+                                        <textarea  id="Reason" class="form-control col-sm-9" rows="3" placeholder="Reason of Cancel" formControlName="Reason"  [(ngModel)] = "Reason"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-danger btn-block"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                            </form>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Return Amount:</label>
+                                <div class="col-sm-8">
+                                    <label class="control-label">{{ReturnAmount}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
